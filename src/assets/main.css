@@ -1,35 +1,123 @@
-@import './base.css';
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+*{
+  padding: 0px;
+  margin: 0;
+}
+body{
+  background-color: #191621;
+}
+.content{
+  margin: 20px;
+  width: calc(100% - 40px);
+  box-sizing: border-box;
+  display: flex;
+}
+header {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header h1 {
+  color: #fdfdfd;
+}
+.left-container {
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
+.right-container {
+  padding-right: 20px;
+  display: flex;
+  align-items: center;
+}
+#title {
+  margin-left: 20px;
+}
+#title h1 {
+  font-family: "Roboto Light";
+}
+#login-button button {
+  background-color: #8544e6;
+  color: #fff;
+  font-family: "Roboto";
+  border: none;
+  border-radius: 15px;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+#logout-button {
+  padding-left: 20px;
+}
+#logout-button button {
+  background-color: black;
+  color: #fff;
+  font-family: "Roboto";
+  border: none;
+  border-radius: 15px;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+#full-name{
+  font-family: "Roboto Medium";
+  color: white;
+  font-size: 18px;
+}
+#avatar{
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 100%;
+  margin-right: 10px;
+  background-color: #d2d2d2;
+}
+.header-logged-in {
+  background-color: #8544e6;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.header-logged-out {
+  background-color: #443f4a;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+.left-content {
+  flex: 30%;
+  font-size: 21px;
+  color: #ffffff;
+  font-family: "Roboto Medium";
 }
+.left-content ul{
+  list-style-type: none;
+}
+.left-content ul li{
+  width: 70%;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+ul .active{
+  background-color: #8544e6;
+  border: none;
+  border-radius: 0px 0px 500px 0px;
+}
+
+.right-content {
+  flex: 70%;
+}
+.aboutme-content{
+  color: white;
+  font-family: "Roboto Thin";
+}
+.aboutme-title{
+  padding-bottom: 15px;
+  font-family: "Roboto Medium";
+
+}
+.aboutme-name .text{
+  color: #a9a9a9;
+}
+.aboutme-name .value{
+  margin-left: 10px;
+  font-family: "Roboto Black";
+}
+
+

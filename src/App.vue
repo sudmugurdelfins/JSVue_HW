@@ -1,47 +1,75 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+
+
 </script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <HeaderComponent @login="login" @logout="logout" :loggedIn="loggedIn"/>
+  <body>
+  <div class="content" v-if="isLoggedIn">
+    <div class="left-content">
+      <NavigationComponent @home="home" @aboutme="aboutme" :page="page" />
     </div>
-  </header>
+    <div class="right-content">
+      <div class="home-content" v-if="isHome">
+        <HomeComponent />
+      </div>
+      <div class="aboutme-content" v-if="isAboutme">
+        <AboutMeComponent />
+      </div>
+    </div>
 
-  <main>
-    <TheWelcome />
-  </main>
+  </div>
+
+  </body>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
+<script>
+import HeaderComponent from './components/HeaderComponent.vue';
+import HomeComponent from "@/components/HomeComponent.vue";
+import NavigationComponent from "@/components/NavigationComponent.vue";
+import AboutMeComponent from './components/AboutMeComponent.vue';
+export default {
+  data() {
+    return {
+      loggedIn: false,
+      page: 'home',
+    };
+  },
+  components: {
+    HeaderComponent,
+    HomeComponent,
+    NavigationComponent,
+    AboutMeComponent
+  },
+  computed: {
+    isLoggedIn() {
+      return this.loggedIn;
+    },
+    isHome() {
+      return this.page === 'home';
+    },
+    isAboutme() {
+      return this.page === 'aboutme';
+    },
+  },
+  methods: {
+    home() {
+      this.page = 'home';
+      console.log(this.page);
+    },
+    aboutme() {
+      this.page = 'aboutme';
+      console.log(this.page);
+    },
+    login() {
+      this.loggedIn = true;
+    },
+    logout() {
+      this.loggedIn = false;
+      this.page = 'home';
+    },
+  },
+};
+</script>
+<style>
+@import "@/assets/main.css";
 </style>
