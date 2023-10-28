@@ -146,7 +146,6 @@ ul .active{
 
 .centered-text {
   display: flex;
-  margin-left: 80px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
