@@ -3,7 +3,11 @@
 </script>
 
 <template>
-<h1>HOME</h1>
+    <div class="home-title">
+      <h1>HOME</h1>
+    </div>
+    <SongListComponent/>
+
 </template>
 
 <style scoped>
